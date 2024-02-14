@@ -1,0 +1,32 @@
+@keyframes slide {
+    0% {
+      transform: translateX(-220%);
+    }
+    20% {
+      transform: translateX(0%);
+    }
+    80% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-220%);
+    }
+  }
+    .changing-title {
+      font-size: 3rem;
+      text-transform: uppercase;
+      color: white;
+    }
+    
+    .letter {
+      display: flex flex-row;
+      animation: slide 5s linear infinite;
+    }
+  
+    .animated-button {
+      transition: all 0.2s ease-in-out;
+    }
+    
+    .animated-button.hovered {
+      transform: scale(1.1);
+    }
