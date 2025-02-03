@@ -7,11 +7,11 @@ import LoginPass from './pages/LoginPass';
 function App() {
   return (
     <div className="overflow-hidden">
-      <Navbar/>
-      <LoginPass/>
-      <Body/>
-      <Body2/>
-      <Body3/>
+      <Navbar />
+      <LoginPass />
+      <Body />
+      <Body2 />
+      <Body3 />
 
     </div>
   );
