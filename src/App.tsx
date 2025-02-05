@@ -1,20 +1,26 @@
-import Navbar from './components/Navbar';
-import Body from './pages/Body'
-import Body2 from './pages/Body2';
-import Body3 from './pages/Body3';
-import LoginPass from './pages/LoginPass';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Home from "./Home";
+import Login from "./pages/Login";
 
-function App() {
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem("isAuthenticated") === "true";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("isAuthenticated", isAuthenticated as any);
+  }, [isAuthenticated]);
+
   return (
-    <div className="overflow-hidden">
-      <Navbar />
-      <LoginPass />
-      <Body />
-      <Body2 />
-      <Body3 />
-
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={isAuthenticated ? <Home /> : <Login setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/home" element={isAuthenticated ? <Home /> : <Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
