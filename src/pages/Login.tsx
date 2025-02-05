@@ -1,6 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-const Login = ({ setIsAuthenticated }: any) => {
+const Login = () => {
+  const { login }: any = useAuth();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -8,8 +12,8 @@ const Login = ({ setIsAuthenticated }: any) => {
   const handleLogin = (e: any) => {
     e.preventDefault();
     if (username === "admin" && password === "123") {
-      localStorage.setItem("isAuthenticated", "true");
-      setIsAuthenticated(true);
+      login(username);
+      navigate("/dashboard");
     } else {
       setError("Invalid username or password");
     }

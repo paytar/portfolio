@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import Home from "./Home";
+import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+
+const PrivateRoute = ({ children }: any) => {
+  const { user }: any = useAuth();
+  return user.isAuthenticated ? children : <Navigate to="/" />;
+};
 
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return localStorage.getItem("isAuthenticated") === "true";
-  });
-
-  useEffect(() => {
-    localStorage.setItem("isAuthenticated", isAuthenticated as any);
-  }, [isAuthenticated]);
-
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={isAuthenticated ? <Home /> : <Login setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/home" element={isAuthenticated ? <Home /> : <Navigate to="/" />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+          <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+          <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 };
 
