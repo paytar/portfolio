@@ -26,19 +26,19 @@ const Body3: FC = () => {
           <div className="gap-20 flex flex-col ">
             <input
               type="text"
-              className="bg-transparent border-b-2 border-white outline-white mx-12 w-72 px-4 py-2 text-white"
-              placeholder="Ad Soyad"
+              className="bg-transparent border-b-2 border-white focus:outline-none mx-12 w-72 px-4 py-2 text-white"
+              placeholder="Name Surname"
             />
             <input
               type="email"
-              className="bg-transparent border-b-2 border-white outline-white mx-12 w-72 px-4 py-2 text-white"
+              className="bg-transparent border-b-2 border-white focus:outline-none mx-12 w-72 px-4 py-2 text-white"
               placeholder="E-Mail"
             />
           </div>
           <div>
             <textarea
-              placeholder="Mesajınız"
-              className="duration-700 bg-transparent border-b-2 border-white outline-white mx-12 lg:w-[675px] w-72 px-4 py-2 text-white"
+              placeholder="Your messages"
+              className="duration-700 bg-transparent border-b-2 border-white focus:outline-none active:outline-none mx-12 lg:w-[675px] w-72 px-4 py-2 text-white"
               cols={1}
               rows={1}
             ></textarea>
@@ -48,11 +48,11 @@ const Body3: FC = () => {
               Submit
             </button>
             <button className="px-2 py-5 bg-red-700 text-white absolute rounded-lg right-0"
-        onClick={handlePageUpClick}
-        >
-          {" "}
-          Page Up{" "}
-        </button>
+              onClick={handlePageUpClick}
+            >
+              {" "}
+              Page Up{" "}
+            </button>
           </div>
         </div>
       </footer>

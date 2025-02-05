@@ -16,14 +16,14 @@ const LoginPass = () => {
       <a
         href="#"
         onClick={handleLoginClick}
-        className="text-xl text-white mx-2 p-2 border-b-2"
+        className="text-xl text-white mx-2 p-2"
       >
         Login
       </a>
       <a
         href="#"
         onClick={handleRegisterClick}
-        className="text-xl text-white mx-2 p-2 border-b-2"
+        className="text-xl text-white mx-2 p-2"
       >
         Register
       </a>

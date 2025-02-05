@@ -56,10 +56,9 @@ const Body2: React.FC = () => {
           {/* img near text */}
           <div className="flex flex-col gap-4 px-16 lg:px-12">
             <h1 className="uppercase text-red-600 text-3xl font-serif font-bold">
-              {" "}
-              <span className="text-5xl text-white">-</span> steven twelwe{" "}
-              <span className="text-5xl text-white">-</span>{" "}
-              <span className="uppercase text-white">hakkında</span>{" "}
+              <span className="text-5xl text-white">-</span> steven twelwe
+              <span className="text-5xl text-white">-</span>
+              <span className="uppercase text-white">hakkında</span>
             </h1>
             <p className="text-white leading-7 tracking-wider max-w-[1000px]">
               Contrary to popular belief, Lorem Ipsum is not simply random text.
