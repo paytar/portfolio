@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 
 const Dashboard = () => {
@@ -12,17 +12,21 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="flex flex-col w-1/6">
-            <h1 className="text-3xl font-bold">Welcome, {user.username}!</h1>
-            <button onClick={() => navigate("/profile")} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">
-                Go to Profile
-            </button>
-            <button onClick={() => navigate("/settings")} className="mt-2 bg-green-500 text-white px-4 py-2 rounded-lg">
-                Go to Settings
-            </button>
-            <button onClick={handleLogout} className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg">
-                Logout
-            </button>
+        <div className="justify-center flex mt-4">
+            <div className="flex flex-col">
+                <h1 className="text-3xl font-bold">Welcome, {user.username}!</h1>
+                <div className="mt-4 gap-4 flex">
+                    <button onClick={() => navigate("/profile")} className="border-2 border-black px-4 py-2 rounded-lg">
+                        Go to Profile
+                    </button>
+                    <button onClick={() => navigate("/settings")} className=" bg-green-500  px-4 py-2 rounded-lg">
+                        Go to Settings
+                    </button>
+                    <button onClick={handleLogout} className=" bg-red-500  px-4 py-2 rounded-lg">
+                        Logout
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };
